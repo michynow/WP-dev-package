@@ -1,0 +1,62 @@
+@mixin vertical-center {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+ }
+ // name - name of the font, file - name of the file
+ @mixin font-face($name, $file) {
+    @font-face {
+    font-family: "#{$name}";
+    src: url("../fonts/#{$file}.eot");
+    src: url("../fonts/#{$file}.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/#{$file}.woff") format("woff"),
+    url("../fonts/#{$file}.ttf") format("truetype"),
+    url("../fonts/#{$file}.svg?#webfont") format("svg");
+  }
+ }
+ //writes cross-browser placeholders
+ @mixin placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+//position absolute shortcut
+@mixin position($position: absolute, $top: null, $right: null, $bottom: null, $left: null, $z-index: initial) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    z-index: $z-index;
+  }
+
+  //flexbox shorthands
+  @mixin flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+   
+  @mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+   
+  @mixin flex-center-column {
+    @include flex-center;
+    flex-direction: column;
+  }
+   
+  @mixin flex-center-vert {
+    display: flex;
+    align-items: center;
+  }
+   
+  @mixin flex-center-horiz {
+    display: flex;
+    justify-content: center;
+  }
